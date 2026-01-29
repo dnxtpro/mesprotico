@@ -67,12 +67,9 @@ const RevealImage = ({ shouldAnimate }: { shouldAnimate: boolean }) => {
 
 function Hero() {
   const [showReveal, setShowReveal] = useState(false);
-  const [key, setKey] = useState(0);
+  const [key] = useState(0);
 
-  const handleAnimate = () => {
-    setShowReveal(false);
-    setKey(prev => prev + 1);
-  };
+ 
 
   const handlePathComplete = () => {
     setShowReveal(true);
