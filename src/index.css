@@ -1,0 +1,161 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+/* MESPROTICO Design System - Industrial/Blueprint Aesthetic
+   Sharp corners, gold accents, technical precision */
+
+@theme {
+  /* Font Families */
+  --font-sans: "Urbanist", sans-serif;
+  
+  /* Core Brand Colors */
+  --color-gold: oklch(67% 0.18 85);           /* #E3A82B - Industrial Gold */
+  --color-gold-hover: oklch(60% 0.18 85);     /* Darker gold for hover */
+  --color-charcoal: oklch(7% 0 0);            /* #111111 - Deep Black */
+  --color-light-bg: oklch(96% 0 0);           /* #F5F5F5 - Light sections */
+  
+  /* Semantic Color Tokens */
+  --color-background: oklch(100% 0 0);
+  --color-foreground: oklch(7% 0 0);
+  --color-card: oklch(96% 0 0);
+  --color-card-foreground: oklch(7% 0 0);
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(7% 0 0);
+  --color-primary: oklch(67% 0.18 85);        /* Gold */
+  --color-primary-foreground: oklch(7% 0 0);
+  --color-secondary: oklch(7% 0 0);           /* Charcoal */
+  --color-secondary-foreground: oklch(100% 0 0);
+  --color-muted: oklch(90% 0 0);
+  --color-muted-foreground: oklch(40% 0 0);
+  --color-accent: oklch(67% 0.18 85);
+  --color-accent-foreground: oklch(7% 0 0);
+  --color-destructive: oklch(60% 0.2 30);
+  --color-destructive-foreground: oklch(100% 0 0);
+  --color-border: oklch(67% 0.18 85);
+  --color-input: oklch(80% 0 0);
+  --color-ring: oklch(67% 0.18 85);
+  
+  /* Dark section backgrounds */
+  --color-dark-bg: oklch(7% 0 0);
+  --color-dark-overlay: oklch(0% 0 0);
+  
+  /* Sidebar colors */
+  --color-sidebar-background: oklch(7% 0 0);
+  --color-sidebar-foreground: oklch(96% 0 0);
+  --color-sidebar-primary: oklch(67% 0.18 85);
+  --color-sidebar-primary-foreground: oklch(7% 0 0);
+  --color-sidebar-accent: oklch(15% 0 0);
+  --color-sidebar-accent-foreground: oklch(96% 0 0);
+  --color-sidebar-border: oklch(67% 0.18 85);
+  --color-sidebar-ring: oklch(67% 0.18 85);
+  
+  /* Zero radius for industrial look */
+  --radius-none: 0px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom utility classes for MESPROTICO */
+@layer components {
+  /* Gold line separator - mimics logo underline */
+  .gold-line {
+    width: 4rem;
+    height: 0.125rem;
+    background-color: var(--color-gold);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Ghost button - transparent with gold border */
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--color-gold);
+    color: var(--color-gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    background-color: var(--color-gold);
+    color: var(--color-charcoal);
+  }
+
+  /* Service card styling */
+  .service-card {
+    background-color: var(--color-card);
+    padding: 2rem;
+    border: 1px solid var(--color-muted);
+    transition: all 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+  /* Project card styling - note: 'group' class must be added in component */
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background-color: rgba(17, 17, 17, 0.8);
+  }
+
+  .group:hover .project-overlay {
+    opacity: 1;
+  }
+
+  /* Section styling */
+  .section-dark {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-dark-bg);
+    color: white;
+  }
+
+  .section-light {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: var(--color-light-bg);
+  }
+
+  /* Navigation link styling */
+  .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--color-gold);
+  }
+}
