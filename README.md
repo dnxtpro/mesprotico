@@ -1,73 +1,76 @@
-# React + TypeScript + Vite
+# mesprotico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application built with React 19, TypeScript, and Tailwind CSS v4. Features smooth animations powered by Framer Motion and client-side routing via React Router v7.
 
-Currently, two official plugins are available:
+🔗 **Live demo:** [mesprotico.vercel.app](https://mesprotico.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Technology | Version | Purpose |
+|---|---|---|
+| React | 19 | UI framework |
+| TypeScript | 5.9 | Type safety |
+| Vite | 7 | Build tool + dev server |
+| Tailwind CSS | 4 | Styling |
+| Framer Motion | 12 | Animations |
+| React Router | 7 | Client-side routing |
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Prerequisites
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js ≥ 18
+- npm or pnpm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+```bash
+git clone https://github.com/dnxtpro/mesprotico.git
+cd mesprotico
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Opens at `http://localhost:5173` with HMR enabled.
+
+### Build
+
+```bash
+npm run build
+```
+
+Outputs to `dist/`. Preview the production build with `npm run preview`.
+
+### Lint
+
+```bash
+npm run lint
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── components/    # Reusable UI components
+├── assets/        # Static assets
+├── App.tsx        # Root component & routing
+├── main.tsx       # Entry point
+└── index.css      # Global styles (Tailwind)
+```
+
+---
+
+## Deployment
+
+Deployed automatically to [Vercel](https://vercel.com) on every push to `master`.
